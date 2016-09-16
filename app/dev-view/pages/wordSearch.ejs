@@ -1,0 +1,28 @@
+<%- contentFor('body') %>
+  <div class="headerSection">
+          <div class="container">
+          <div class="Word"><a href="wordsByletter.html"> Word</a></div> 
+          <div class="startingwithletter">
+
+            <h1>List of words starting with letter  a</h1>
+          <ul>
+	  <%
+		  
+		   for(var k=0; k<param.data.length;k++)
+       { %> 
+<li> <a href="/word/<%= param.data[k].word%>">
+       <%= param.data[k].word%>
+       
+		    </a></li>
+		   <%
+		   }
+		  %>
+
+                
+          </ul>
+              
+
+          </div>
+            
+          </div>
+  </div>
