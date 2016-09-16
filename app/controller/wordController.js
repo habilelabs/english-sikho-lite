@@ -11,12 +11,11 @@ module.exports = function (app) {
    };
 
     app.browsePage = function (req, res) {
-        app.getCommonParam(req, function (err, param) {
-            param.title = 'browse-by-letter';
-            res.render('pages/browsebyletter', {
-                param: param
-            });
-        });
+		var param = {};
+		param.title = 'browse-by-letter';
+		res.render('pages/browsebyletter', {
+			param: param
+		});
     };
 	
 	  app.wordPage = function (req, res) {
