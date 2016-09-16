@@ -3,7 +3,6 @@
     <div class="container">
         <div class="Word"><a href="/"> Word</a></div>
         <div class="startingwithletter">
-
             <h1>List of words starting with letter a</h1>
             <ul>
                 <%
@@ -11,16 +10,19 @@
                 { %>
                 <li><a href="/word/<%= param.data[k].word %>">
                         <%= param.data[k].word %>
-
                     </a></li>
                 <%
                 }
                 %>
-
             </ul>
-
-
         </div>
+        <div class="Word"><a href="/search/<%= param.word%>/<%= parseInt(param.page)+1%>">Next</a></div>
+
+        <%
+        if(param.page)
+        { %>
+        <div class="Word"><a href="/search/<%= param.word%>/<%= parseInt(param.page)-1%>">Previous</a></div>
+        <%}%>
 
     </div>
 </div>

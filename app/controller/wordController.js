@@ -40,13 +40,18 @@ module.exports = function (app) {
     };
 	
 	  app.searchPage = function (req, res) {
-		  
+		  var page =0;
+		  if(req.params.page){
+			  page = req.params.page;
+		  }
 		  //"https://www.englishsikho.com/api/v1/search/an/0"
-		 request('https://www.englishsikho.com/api/v1/search/'+req.params.word+"/0", function (error, response, body) {
+		 request('https://www.englishsikho.com/api/v1/search/'+req.params.word+"/"+page, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var param = {};
 				param.title = 'Englishsikho - Learn English from Hindi- Best English Learning website';
 				param.data = JSON.parse(body);
+				param.page = page;
+				param.word = req.params.word;
 				res.render('pages/wordSearch', {
 					param: param
 				});
