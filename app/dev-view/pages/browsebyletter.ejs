@@ -3,9 +3,9 @@
           <div class="container">
           <div class="Word"><a href="/"> Home</a></div>
              <div class="browseWordsbyLetter">
+                 <h1>Search word by letter</h1>
                   <ul>
-                      <%
-                      for(var k = 0; k < param.englishChars.length;k++)
+                      <% for(var k = 0; k < param.englishChars.length;k++)
                       { %>
                       <li><a href="/search/<%= param.englishChars[k] %>">
                               <%= param.englishChars[k] %>
@@ -15,64 +15,17 @@
                       %>
                   </ul>
 
-
-                  <ul>
-                  <li><a href="/search/अ">अ</a></li>
-                  <li><a href="/search/आ">आ</a></li>
-                  <li><a href="/search/इ">इ</a></li>
-                  <li><a href="/search/ई">ई</a></li>
-                  <li><a href="/search/">उ</a></li>
-                  <li><a href="/search/">ऊ</a></li>
-                  <li><a href="/search/">ए</a></li>
-                  <li><a href="/search/">ऐ</a></li>
-                  <li><a href="/search/">औ</a></li>
-                  <li><a href="/search/">अं</a></li>
-                  <li><a href="/search/">अः</a></li>
-                  <li><a href="/search/">ऍ</a></li>
-                  <li><a href="/search/">ऒ</a></li>
-                  <li><a href="/search/">ऑ</a></li>
-                  <li><a href="/search/">अँ</a></li>
-                  <li><a href="/search/">आँ</a></li>
-                  <li><a href="/search/">ऋ</a></li>
-                  <li><a href="/search/">ऌ</a></li>
-                  <li><a href="/search/">क</a></li>
-                  <li><a href="/search/">ख</a></li>
-                  <li><a href="/search/">ग</a></li>
-                  <li><a href="/search/">घ</a></li>
-                  <li><a href="/search/">ङ</a></li>
-                  <li><a href="/search/">च</a></li>
-                  <li><a href="/search/">छ</a></li>
-                  <li><a href="/search/">ज</a></li>
-                  <li><a href="/search/">झ</a></li>
-                  <li><a href="/search/">ञ</a></li>
-                  <li><a href="/search/">ट</a></li>
-                  <li><a href="/search/">ठ</a></li>
-                  <li><a href="/search/">ड</a></li>
-                  <li><a href="/search/">ढ</a></li>
-                  <li><a href="/search/">ण</a></li>
-                  <li><a href="/search/">त</a></li>
-                  <li><a href="/search/">थ</a></li>
-                  <li><a href="/search/">द</a></li>
-                  <li><a href="/search/">ध</a></li>
-                  <li><a href="/search/">न</a></li>
-                  <li><a href="/search/">प</a></li>
-                  <li><a href="/search/">फ</a></li>
-                  <li><a href="/search/">ब</a></li>
-                  <li><a href="/search/">भ</a></li>
-                  <li><a href="/search/">म</a></li>
-                  <li><a href="/search/">य</a></li>
-                  <li><a href="/search/">र</a></li>
-                  <li><a href="/search/">ल</a></li>
-                  <li><a href="/search/">व</a></li>
-                  <li><a href="/search/">श</a></li>
-                  <li><a href="/search/">ष</a></li>
-                  <li><a href="/search/">स</a></li>
-                  <li><a href="/search/">ह</a></li>
-                  <li><a href="/search/">ळ</a></li>
-                  <li><a href="/search/">क्ष</a></li>
-                  <li><a href="/search/">ज्ञ</a></li>
-                  </ul>
-
+                 <ul>
+                     <%
+                     for(var k = 0; k < param.hindiChars.length;k++)
+                     { %>
+                     <li><a href="/search/<%= param.hindiChars[k] %>">
+                             <%= param.hindiChars[k] %>
+                         </a></li>
+                     <%
+                     }
+                     %>
+                 </ul>
              </div>
           </div>
   </div>

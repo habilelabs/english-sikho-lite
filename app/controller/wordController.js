@@ -15,6 +15,7 @@ module.exports = function (app) {
         param.title = 'browse-by-letter';
         var latters = 'abcdefghijklmnopqrstuvwxyz'
         param.englishChars = latters.split('');
+        param.hindiChars = hindiChars();
         res.render('pages/browsebyletter', {
             param: param
         });
@@ -34,6 +35,10 @@ module.exports = function (app) {
         })
 
     };
+
+    function hindiChars(){
+        return ['अ','आ','इ','ई','उ']
+    }
 
 	app.searchPage = function (req, res) {
 		var page = 0;
