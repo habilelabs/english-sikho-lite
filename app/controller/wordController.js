@@ -51,6 +51,7 @@ module.exports = function (app) {
 				var param = {};
 				param.title = 'Englishsikho - Learn English from Hindi- Best English Learning website';
 				param.data = JSON.parse(body);
+				console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',param.data);
 				param.page = page;
 				param.word = req.params.word;
 				res.render('pages/wordSearch', {
@@ -60,3 +61,4 @@ module.exports = function (app) {
 		});
 	};
 }
+

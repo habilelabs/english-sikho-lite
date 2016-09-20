@@ -2,33 +2,88 @@
 <div class="headerSection">
     <div class="container">
         <div class="Word"><a href="/"> Word</a></div>
+        <div class="searchBar">
+                <input id="searchWord" type="text" placeholder="Type a word or a phrase to search">
+                <button class="btn search-submit" type="button" onclick="search()"><span>Search</span></button>           
+                </div>
         <div class="startingwithletter">
             <h1>List of words starting with letter <%= param.word %></h1>
+			 <P class="NoResultsFound"> <%
+			if(param.data[0].word == 'No results found, Similar word suggestions') {
+			%>
+			
+			No results found, Similar word suggestions
+			
+			<%
+			}
+			%>
+			</P>
+				
             <ul>
                 <%
+				
                 for(var k = 0; k < param.data.length;k++)
-                { %>
+                {
+					
+
+					if(param.data[k].word !== 'No results found, Similar word suggestions') {
+				%>
                 <li><a href="/word/<%= param.data[k].word %>">
                         <%= param.data[k].word %>
                     </a></li>
                 <%
+				}
                 }
                 %>
             </ul>
+			
+			
         </div>
         
+
+        
         <div class="Pagination">
-            <ul class="pagination">
-  <li><a href="#">«</a></li>
-  <li><a href="#">1</a></li>
-  <li><a class="active" href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">6</a></li>
-  <li><a href="#">7</a></li>
-  <li><a href="#">»</a></li>
+		
+			
+		
+<ul class="pagination">
+<li>
+    <a href="/search/<%= param.word%>/<%= parseInt(param.page)-1%>"> <<</a>
+    </li>
+    <%
+    var startPage=1;
+    var endPage=10;
+    if(param.page > 5){
+        startPage=parseInt(param.page)-4;
+        endPage=parseInt(param.page)+5;
+    }
+    if(endPage > param.lastpage){
+        endPage = param.lastpage;
+    }
+            for(var i =startPage; i<=endPage;i++){
+
+            if(i==param.page){
+    %>
+    <li class="active">
+        <%
+        }
+        else{
+        %>
+    <li>
+        <%
+        }
+
+        %>
+        <a href="/search/<%= param.word%>/<%= i%>">
+            <%= i%>
+        </a>
+    </li>
+    <%  } %>
+    <li>
+        <a href="/search/<%= param.word%>/<%= parseInt(param.page)+1%>">>></a>
+    </li>
 </ul>
+
 
         </div>
 
