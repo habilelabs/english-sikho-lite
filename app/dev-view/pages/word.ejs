@@ -1,32 +1,101 @@
 <%- contentFor('body') %>
-  <div class="headerSection">
-          <div class="container">
+<div class="headerSection">
+    <div class="container">
 
-          <div class="Word"><a href="/"> Home</a></div>
-          <div class="logo">
-                 <img src="/logo.svg">
-              </div>
-          <div class="searchBar">
-                <input id="searchWord" type="text" placeholder="Type a word or a phrase to search">
-                <button class="btn search-submit" type="button" onclick="search()"><span>Search</span></button>           
-                </div>
+        <div class="Word"><a href="/"> Home</a></div>
+        <div class="logo">
+            <img src="/logo.svg">
+        </div>
+        <div class="searchBar">
+            <input id="searchWord" type="text" placeholder="Type a word or a phrase to search">
+            <button class="btn search-submit" type="button" onclick="search()"><span>Search</span></button>
+        </div>
 
-              <div class="searchBar center">
+        <div class="searchBar center">
 
-              <h1><%=param.data.word%></h1> 
+            <h1><%= param.data.word %></h1>
 
-              <p><%=param.data.type%></p> 
+            <p> <% if(param.data.type) { %>
 
-              <p><%=param.data.hindiSentence%></p>
+                Type: <%= param.data.type %>
 
-              <h4>Definitions :</h4>
+                <%}%>
+            </p>
+            <!--for hindi translation-->
+            <p> <% if(param.data.englishMeaning) {  %>
 
-              <p><%=param.data.definition%></p>
+                English Meaning: <%= param.data.englishMeaning %>
 
-              <h4>Synonym :</h4>
+                <%}%>
+            </p>
+            <!--end hindi translation-->
+            <p> <% if(param.data.phoneticPronunciation) {  %>
 
-              <p><%=param.data.synonym%></p>
-              
-              </div>
-          </div>
-  </div>
+                Phonetic Pronunciation: [<%= param.data.phoneticPronunciation %>]
+
+                <%}%>
+            </p>
+
+            <p> <% if(param.data.hindiMeaning) {  %>
+
+                Hindi: <%= param.data.hindiMeaning %>
+
+                <%}%>
+            </p>
+
+            <h4>
+                <% if(param.data.definition) { %>
+
+                Definitions :
+
+                <% } %>
+            </h4>
+
+                <% if(param.data.definition) { %>
+            <ul class="definition-list">
+                <% var definition = param.data.definition.split("|");
+                for(var i=0 ; i < definition.length ; i++){
+                %>
+                <li>
+                    <%= definition[i] %>
+                </li>
+                <% } %>
+            </ul>
+
+
+                <% } %>
+
+            <h4>
+                <br>
+                <% if(param.data.synonym) { %>
+                Synonym :
+                <% } %>
+            </h4>
+
+            <p>
+                <% if(param.data.synonym) { %>
+
+                <%= param.data.synonym %>
+
+                <% }  %>
+            </p>
+            <h4>
+                <% if(param.data.hindiSentence) { %>
+                Uses:
+                <% } %>
+            </h4>
+            <p> <% if(param.data.hindiSentence) {  %>
+
+                Hindi Sentence: <%= param.data.hindiSentence %>
+                <%}%>
+            </p>
+            <p> <% if(param.data.englishSentence) {  %>
+
+                English Sentence: <%= param.data.englishSentence %>
+
+                <%}%>
+            </p>
+
+        </div>
+    </div>
+</div>

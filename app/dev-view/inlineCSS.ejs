@@ -37,7 +37,24 @@ button.btn.search-submit { position: absolute; right: 1%; background: #FFC107; b
 .browseWordsbyLetter h1, .startingwithletter h1 {text-align: center; color: #000; padding: 11px; margin-bottom: 20px; margin-top: 10px; background: #FFC107;}
 .center {margin: auto; text-align: center;  display: inline-block; font-size: 20px; padding-top:70px;     background: rgba(255, 255, 255, 0.2);    padding-bottom: 70px; margin-top: 17px;}
 .searchBar .TopSearch  { text-align: center; font-size: 20px; margin-top: 11px;float: left; width: 100%;  font-style: italic;}
-.startingwithletter ul li { position: relative; float: left; min-width: 147px; width: 23.25%; padding-left: 1%; line-height: 29px; border: 0; background: rgba(255, 255, 255, 0.2); margin-right: 1%;  border-bottom: dotted 1px #ccc;}
+.startingwithletter ul li {
+    position: relative;
+    float: left;
+    min-width: 147px;
+    width: 23.25%;
+    margin-top: 4px;
+    padding-left: 1%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    line-height: 30px;
+    border: 0;
+    background: rgba(255, 255, 255, 0.2);
+    margin-right: 1%;
+    box-shadow: 0 1px 0 0 #ffc107;
+}
+  .definition-list li {
+      list-style: circle;
+  }
 .startingwithletter ul li:nth-child(4n) {margin-right: 0px;}
 
 
@@ -86,11 +103,13 @@ ul.pagination li a {
     min-width: 147px;
     width: 43.25%;
     padding-left: 1%;
-    line-height: 29px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    line-height: 30px;
     border: 0;
     background: rgba(255, 255, 255, 0.2);
-    margin-right: 2%;
-    border-bottom: dotted 1px #ccc;
+    margin-right: 1%;
+    box-shadow: 0 1px 0 0 #ffc107;
     margin-bottom:10px;
 }
 .TopSearchTitle ul li a{ width:100%; float:left;}
