@@ -95,5 +95,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.registerTask('default', ['processhtml', 'htmlmin']);
+    grunt.registerTask('default', ['processhtml', 'htmlmin','clean']);
 };

@@ -12,10 +12,21 @@
     <title><%= param.title %></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="/img/favicon.ico" type="image/gif" sizes="32x32">
-    <script src="/js/main.js"></script>
 </head>
 <body>
     <%- body %>
-</div>
+
+	<script async type="text/javascript">
+function search(){
+ if(document.getElementById('searchWord').value){
+ window.location = "/search/" +document.getElementById('searchWord').value;
+ }
+ else{
+   alert('please enter word or a phrase to search');
+   return false;
+ }
+ 
+}
+</script>
 </body>
 </html>
