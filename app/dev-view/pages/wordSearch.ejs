@@ -10,13 +10,11 @@
                 <button class="btn search-submit" type="button" onclick="search()"><span>Search</span></button>           
                 </div>
         <div class="startingwithletter">
-            <h1>List of words starting with letter <%= param.word %></h1>
+            <h1>List of words starting with letter <%= param.param.word %></h1>
 			 <P class="NoResultsFound"> <%
-			if(param.data[0].word == 'No results found, Similar word suggestions') {
+			if(param.param.data[0].word == 'No results found, Similar word suggestions') {
 			%>
-			
 			No results found, Similar word suggestions
-			
 			<%
 			}
 			%>
@@ -25,14 +23,13 @@
             <ul>
                 <%
 				
-                for(var k = 0; k < param.data.length;k++)
+                for(var k = 0; k < param.param.data.length;k++)
                 {
-					
 
-					if(param.data[k].word !== 'No results found, Similar word suggestions') {
+					if(param.param.data[k].word !== 'No results found, Similar word suggestions') {
 				%>
-                <li><a href="/word/<%= param.data[k].word %>">
-                        <%= param.data[k].word %>
+                <li><a href="/word/<%= param.param.data[k].word %>">
+                        <%= param.param.data[k].word %>
                     </a></li>
                 <%
 				}
@@ -42,30 +39,29 @@
 			
 			
         </div>
-        
-
-        
         <div class="Pagination">
-		
-			
-		
 <ul class="pagination">
 <li>
-    <a href="/search/<%= param.word%>/<%= parseInt(param.page)-1%>"> <<</a>
-    </li>
+    <% if(param.param.page > 1) {%>
+    <a href="/search/<%= param.param.word%>/<%= parseInt(param.param.page)-1%>"> <<</a>
+    <% } %>
+</li>
     <%
     var startPage=1;
-    var endPage=10;
-    if(param.page > 5){
-        startPage=parseInt(param.page)-4;
-        endPage=parseInt(param.page)+5;
+    var endPage=param.countresult.wcount/20;
+    if(endPage > 10){
+        endPage = 10;
     }
-    if(endPage > param.lastpage){
-        endPage = param.lastpage;
+    if(param.param.page > 5){
+        startPage=parseInt(param.param.page)-4;
+        endPage=parseInt(param.param.page)+5;
+    }
+    if(endPage > param.countresult.lastpage){
+        endPage = param.countresult.lastpage;
     }
             for(var i =startPage; i<=endPage;i++){
 
-            if(i==param.page){
+            if(i==param.param.page){
     %>
     <li class="active">
         <%
@@ -77,13 +73,15 @@
         }
 
         %>
-        <a href="/search/<%= param.word%>/<%= i%>">
+        <a href="/search/<%= param.param.word%>/<%= i%>">
             <%= i%>
         </a>
     </li>
     <%  } %>
     <li>
-        <a href="/search/<%= param.word%>/<%= parseInt(param.page)+1%>">>></a>
+        <% if(param.param.page < param.countresult.lastpage){%>
+        <a href="/search/<%= param.param.word%>/<%= parseInt(param.param.page)+1%>">>></a>
+        <% }%>
     </li>
 </ul>
 

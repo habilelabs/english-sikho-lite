@@ -11,16 +11,21 @@
                 <p class="TopSearch">Top Search..</p>	              
                 </div>
               <div class="TopSearchTitle">
-					<ul>
-						<li><a href="#">1. Fogged </a></li>
-						<li><a href="#">2. Dragon Fruit</a></li>
-						<li><a href="#">3. Paralympics</a></li>
-						<li><a href="#">4. Self-Obsessed</a></li>
-						<li><a href="#">5. Thanks A Lot</a></li>
-						<li><a href="#">6. Raw-Milk</a></li>
-						<li><a href="#">7. Kaizen</a></li>
-						<li><a href="#">8. Submissive</a></li>
-					</ul>
-				</div>
+                  <ul>
+                      <%
+
+                      for(var k = 0; k < param.data.length;k++)
+                      {
+                      if(param.data[k].word !== 'No results found, Similar word suggestions') {
+                      %>
+                      <li><a href="/word/<%= param.data[k].word %>">
+                              <%= k+1 %>. <%= param.data[k].word %>
+                          </a></li>
+                      <%
+                      }
+                      }
+                      %>
+                  </ul>
+              </div>
           </div>
 </div>
