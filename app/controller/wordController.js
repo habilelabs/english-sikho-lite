@@ -86,7 +86,6 @@ module.exports = function (app) {
                 allData.countresult = results[0];
                 allData.param = results[1];
                 if (err) {
-                    console.log(err);
                     return res.sendStatus(400);
                 }
                 else {
