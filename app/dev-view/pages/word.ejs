@@ -12,89 +12,115 @@
         </div>
 
         <div class="searchBar center">
+            <table align="center" class="wordCenterCss">
+                <tr>
+                    <th colspan="2">
+                        <h1><%= param.data.word %>
+                            <% if(param.data.phoneticPronunciation) {  %>
+                          [<%= param.data.phoneticPronunciation %>]
+                            <%}%>
+                        </h1>
+                    </th>
+                </tr>
+                <tr>
+                    <% if(param.data.type) { %>
+                    <td>
+                        Type:
+                    </td>
+                    <td>
+                        <%= param.data.type %>
+                    </td>
+                    <%}%>
+                </tr>
 
-            <h1><%= param.data.word %></h1>
+                <tr>
+                    <% if(param.data.englishMeaning) {  %>
+                    <td>
+                        English Meaning:
+                    </td>
+                    <td>
+                        <%= param.data.englishMeaning %>
+                    </td>
+                    <%}%>
+                </tr>
 
-            <p> <% if(param.data.type) { %>
+                <tr>
+                    <% if(param.data.hindiMeaning) {  %>
+                    <td>
+                        Hindi Meaning:
+                    </td>
+                    <td>
+                        <%= param.data.hindiMeaning %>
+                    </td>
+                    <%}%>
+                </tr>
 
-                Type: <%= param.data.type %>
+                <tr>
+                    <% if(param.data.synonym) { %>
+                    <td>
+                        Synonym :
+                    </td>
+                    <td>
+                        <%= param.data.synonym %>
+                    </td>
+                    <% } %>
+                </tr>
 
-                <%}%>
-            </p>
-            <!--for hindi translation-->
-            <p> <% if(param.data.englishMeaning) {  %>
+                <tr>
+                    <td colspan="2">
+                    <h4 class="definitionH4">
+                        <% if(param.data.definition) { %>
 
-                English Meaning: <%= param.data.englishMeaning %>
+                        Definitions :
 
-                <%}%>
-            </p>
-            <!--end hindi translation-->
-            <p> <% if(param.data.phoneticPronunciation) {  %>
+                        <% } %>
+                    </h4>
 
-                Phonetic Pronunciation: [<%= param.data.phoneticPronunciation %>]
-
-                <%}%>
-            </p>
-
-            <p> <% if(param.data.hindiMeaning) {  %>
-
-                Hindi: <%= param.data.hindiMeaning %>
-
-                <%}%>
-            </p>
-
-            <h4>
-                <% if(param.data.definition) { %>
-
-                Definitions :
-
-                <% } %>
-            </h4>
-
-                <% if(param.data.definition) { %>
-            <ul class="definition-list">
-                <% var definition = param.data.definition.split("|");
-                for(var i=0 ; i < definition.length ; i++){
-                %>
-                <li>
-                    <%= definition[i] %>
-                </li>
-                <% } %>
-            </ul>
+                    <% if(param.data.definition) { %>
+                    <ul class="definition-list">
+                        <% var definition = param.data.definition.split("|");
+                        for(var i=0 ; i < definition.length ; i++){
+                        %>
+                        <li>
+                            &#8226; <%= definition[i] %>
+                        </li>
+                        <% } %>
+                    </ul>
 
 
-                <% } %>
+                    <% } %>
+                    </td>
+                </tr>
 
-            <h4>
-                <br>
-                <% if(param.data.synonym) { %>
-                Synonym :
-                <% } %>
-            </h4>
+                <tr>
+                    <td colspan="2">
+                        <% if(param.data.hindiSentence) { %>
+                      <h4 class="usesSentance">Uses:</h4>
+                        <% } %>
+                    </td>
+                </tr>
+                <tr>
+                    <% if(param.data.hindiSentence) {  %>
+                    <td>
+                        Hindi Sentence:
+                    </td>
+                    <td>
+                        <%= param.data.hindiSentence %>
+                    </td>
+                    <%}%>
+                </tr>
 
-            <p>
-                <% if(param.data.synonym) { %>
-
-                <%= param.data.synonym %>
-
-                <% }  %>
-            </p>
-            <h4>
-                <% if(param.data.hindiSentence) { %>
-                Uses:
-                <% } %>
-            </h4>
-            <p> <% if(param.data.hindiSentence) {  %>
-
-                Hindi Sentence: <%= param.data.hindiSentence %>
-                <%}%>
-            </p>
-            <p> <% if(param.data.englishSentence) {  %>
-
-                English Sentence: <%= param.data.englishSentence %>
-
-                <%}%>
-            </p>
+                <tr>
+                    <% if(param.data.englishSentence) { %>
+                    <td>
+                        English Sentence:
+                    </td>
+                    <td>
+                    <%= param.data.englishSentence %>
+                    </td>
+                    <%}%>
+                </tr>
+            </table>
 
         </div>
     </div>

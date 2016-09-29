@@ -1,9 +1,10 @@
 var request = require('request');
 var async  = require('async');
-
+var url = 'https://www.englishsikho.com/api/v1/';
 module.exports = function (app) {
+
     app.home = function (req, res) {
-            request('https://www.englishsikho.com/api/v1/getTrandingWord', function (error, response, body) {
+            request(url + 'getTrandingWord', function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     var param = {};
                     param.title = 'Englishsikho - Learn English from Hindi- Best English Learning website';
@@ -26,8 +27,8 @@ module.exports = function (app) {
     };
 
     app.wordPage = function (req, res) {
-        var url = encodeURI('https://www.englishsikho.com/api/v1/getword/' + req.params.word);
-        request(url, function (error, response, body) {
+        var wordUrl = encodeURI(url + 'getword/' + req.params.word);
+        request(wordUrl, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 var param = {};
                 param.title = 'Englishsikho - Learn English from Hindi- Best English Learning website';
@@ -54,13 +55,11 @@ module.exports = function (app) {
 		if (req.params.page) {
 			page = req.params.page;
 		}
-		//"https://www.englishsikho.com/api/v1/search/an/0"
-        console.log('req.params.word-----',req.params.word);
-        var url = encodeURI('https://www.englishsikho.com/api/v1/search/' + req.params.word + "/" + page);
-        console.log(url);
+        var searchUrl = encodeURI(url + 'search/' + req.params.word + "/" + page);
+        var urlCount = encodeURI(url + 'searchCount/' + req.params.word);
            async.parallel([
                 function (callback) {
-                        request('https://www.englishsikho.com/api/v1/searchCount/' + req.params.word, function (error, response, body) {
+                        request(urlCount, function (error, response, body) {
                             if (!error && response.statusCode == 200) {
                                var countresult = {};
                                 countresult.wcount = JSON.parse(body);
@@ -70,9 +69,7 @@ module.exports = function (app) {
                         });
                 },
                 function (callback) {
-                    request(url, function (error, response, body) {
-                       console.log('error--',error);
-                      console.log('body---------',body);
+                    request(searchUrl, function (error, response, body) {
                         if (!error && response.statusCode == 200) {
                             var param = {};
                             param.title = 'Englishsikho - Learn English from Hindi- Best English Learning website';
@@ -98,18 +95,7 @@ module.exports = function (app) {
                     });
                 }
             });
-
-
-
-
-
-
-
-
-
-
 	};
-
 };
 
 

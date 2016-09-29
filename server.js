@@ -3,7 +3,7 @@
 // set up constants ===============================================================
 var port = process.env.PORT || 80;
 
-var viewDirectory = "/app/view";
+var viewDirectory = "/app/dev-view";
 var webRootDirectory = "/app/webroot";
 if (process.env.NODE_ENV === "production") {
 	port = process.env.PORT || 3000;
