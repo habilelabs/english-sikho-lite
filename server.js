@@ -1,12 +1,12 @@
 // server.js
 
 // set up constants ===============================================================
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 var viewDirectory = "/app/dev-view";
-var webRootDirectory = "/app/webroot";
+var webRootDirectory = "/app/dev-webroot";
 if (process.env.NODE_ENV === "production") {
-	port = process.env.PORT || 3000;
+	port = process.env.PORT || 80;
     viewDirectory = "/app/view";
     webRootDirectory = "/app/webroot";
 }
